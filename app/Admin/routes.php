@@ -12,4 +12,7 @@ Route::group([
 
     $router->get('/', 'HomeController@index');
     $router->resource('orders', OrderController::class);
+    $router->resource('types', TypeController::class);
+    $router->resource('reports', ReportController::class);
+    $router->resource('users', UserController::class);
 });

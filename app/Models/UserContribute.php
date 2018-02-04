@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserContribute extends Model
 {
-    //
+    protected $table = 'user_contribute';
 }
