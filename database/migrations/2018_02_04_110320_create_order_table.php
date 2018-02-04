@@ -22,8 +22,7 @@ class CreateOrderTable extends Migration {
 			$table->text('metas', 65535);
 			$table->boolean('mark');
 			$table->string('comment');
-			$table->integer('createdTime');
-			$table->integer('updateTime');
+			$table->timestamps();
 			$table->string('remember_token', 100)->nullable();
 		});
 	}

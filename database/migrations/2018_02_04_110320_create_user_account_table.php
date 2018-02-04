@@ -21,10 +21,8 @@ class CreateUserAccountTable extends Migration {
 			$table->string('nickname');
 			$table->text('metas', 65535);
 			$table->string('InviteCode');
-			$table->integer('createdTime');
-			$table->integer('updateTime');
-			$table->string('remember_token', 100)->nullable();
 			$table->timestamps();
+			$table->string('remember_token', 100)->nullable();
 		});
 	}
 

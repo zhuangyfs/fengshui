@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateUserContributeTable extends Migration {
+class CreateReportTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,13 +12,12 @@ class CreateUserContributeTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('user_contribute', function(Blueprint $table)
+		Schema::create('report', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('userId');
-			$table->float('amount', 10);
-			$table->integer('createdTime');
-			$table->integer('updateTime');
+			$table->string('orderId');
+			$table->text('metas', 65535);
+			$table->timestamps();
 			$table->string('remember_token', 100)->nullable();
 		});
 	}
@@ -31,7 +30,7 @@ class CreateUserContributeTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('user_contribute');
+		Schema::drop('report');
 	}
 
 }

@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateServiceTypeTable extends Migration {
+class CreateAdminUsersTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,14 +12,15 @@ class CreateServiceTypeTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('service_type', function(Blueprint $table)
+		Schema::create('admin_users', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('name', 10);
-			$table->text('metas', 65535);
-			$table->integer('createdTime');
-			$table->integer('updateTime');
+			$table->string('username', 190)->unique();
+			$table->string('password', 60);
+			$table->string('name');
+			$table->string('avatar')->nullable();
 			$table->string('remember_token', 100)->nullable();
+			$table->timestamps();
 		});
 	}
 
@@ -31,7 +32,7 @@ class CreateServiceTypeTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('service_type');
+		Schema::drop('admin_users');
 	}
 
 }

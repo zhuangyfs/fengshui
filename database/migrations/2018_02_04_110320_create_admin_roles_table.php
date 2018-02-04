@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateReportTable extends Migration {
+class CreateAdminRolesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,14 +12,12 @@ class CreateReportTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('report', function(Blueprint $table)
+		Schema::create('admin_roles', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('orderId');
-			$table->text('metas', 65535);
-			$table->integer('createdTime');
-			$table->integer('updateTime');
-			$table->string('remember_token', 100)->nullable();
+			$table->string('name', 50)->unique();
+			$table->string('slug', 50);
+			$table->timestamps();
 		});
 	}
 
@@ -31,7 +29,7 @@ class CreateReportTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('report');
+		Schema::drop('admin_roles');
 	}
 
 }
